@@ -1,27 +1,28 @@
-// Question: https://adventofcode.com/2015/day/1
-
 #include <iostream>
-#include <vector>
 
-int main()
-{
-    std::string directions;
+using namespace std;
+
+#define up '('
+#define down ')'
+#define target_floor -1
+
+int main() {
+
+    string input;
     int floor = 0, position = 1;
 
-    std::cout << "Enter Santa's Instructions: ";
+    cout << "Enter Santa's directions: ";
+    cin >> input;
 
-    std::cin >> directions;
-
-    for (char direction : directions)
-    {
-        if (direction == '(')
+    for(char dir : input) {
+        if(dir == up) {
             floor++;
-        else
+        } else {
             floor--;
+        }
 
-        if (floor == -1)
-        {
-            std::cout << "Sants reaches -1 on floor: " << position << std::endl;
+        if(floor == target_floor) {
+            cout << "Santa arrivers on floor -1 at position " << position << endl;
             return 0;
         }
 

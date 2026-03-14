@@ -1,23 +1,27 @@
-// Question: https://adventofcode.com/2015/day/1
-
-
 #include <iostream>
-#include <vector>
+
+using namespace std;
+
+#define up '('
+#define down ')'
 
 int main() {
-    std::string directions;
+
+    string input;
     int floor = 0;
-    
-    std::cout << "Enter Santa's Instructions: ";
 
-    std::cin >> directions;
+    cout << "Enter Santa's directions: ";
+    cin >> input;
 
-    for (char direction : directions) {
-        if (direction == '(') floor++;
-        else floor--;
+    for(char dir : input) {
+        if(dir == up) {
+            floor++;
+        } else {
+            floor--;
+        }
     }
 
-    std::cout << "Sants is on floor " << floor << std::endl;
+    cout << "Santa Ends up on floor: " << floor << endl;
 
     return 0;
 }
